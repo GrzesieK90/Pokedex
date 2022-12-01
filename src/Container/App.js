@@ -42,7 +42,7 @@ class App extends Component {
             </Scroll>
             <SearchBox searchChange={this.onSearchChange} />
         </ErrorBoundry>
-      <img src={Gotta} alt="gotta" style={{width: 500, height: 100}}/>
+      <img src={Gotta} alt="gotta" style={{width: 400, height: 70}}/>
     </div>
   )
 }
