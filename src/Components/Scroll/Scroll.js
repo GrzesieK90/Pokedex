@@ -9,7 +9,7 @@ const Scroll = (props) => {
         border: '2px solid black',
         boxShadow: '0px 0px 5px black',
         borderRadius: '15px',
-        height: '80vh',
+        height: '70vh',
         width: '96vw',
         marginLeft: 'Auto',
         marginRight: 'Auto',

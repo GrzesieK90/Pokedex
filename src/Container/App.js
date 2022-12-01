@@ -4,6 +4,7 @@ import SearchBox from "../Components/SearchBox/SearchBox";
 import ErrorBoundry from '../Components/ErrorBoundry/ErrorBoundry';
 import Scroll from '../Components/Scroll/Scroll'
 import Pokemon from '../Components/PNG/pokemon.png'
+import Gotta from '../Components/PNG/gotta.png'
 import './App.css';
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
       return pokemon.name.toLowerCase().includes(searchfield.toLowerCase())
     })
   return (
-    <div className="">
+    <div className="all">
       <img src={Pokemon} alt="Pokemon Logo" style={{width: 300, height: 100}}/>
         <ErrorBoundry>
             <Scroll>
@@ -41,6 +42,7 @@ class App extends Component {
             </Scroll>
             <SearchBox searchChange={this.onSearchChange} />
         </ErrorBoundry>
+      <img src={Gotta} alt="gotta" style={{width: 500, height: 100}}/>
     </div>
   )
 }
