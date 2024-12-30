@@ -1,7 +1,19 @@
-body{
-  background: rgb(223, 70, 0);
+body {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  margin: 0;
+  padding: 0;
 }
 
 .all {
-min-height: -webkit-fill-available; 
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.all img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

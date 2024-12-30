@@ -31,20 +31,18 @@ class App extends Component {
     const filteredPokemons = pokemons.filter(pokemon =>{
       return pokemon.name.toLowerCase().includes(searchfield.toLowerCase())
     })
-  return (
-    <div className="all">
-      <img src={Pokemon} alt="Pokemon Logo" style={{width: 300, height: 100}}/>
-        <ErrorBoundry>
-            <Scroll>
-              <div className="pokeList">
+    return (
+      <div className="all">
+        <img src={Pokemon} alt="Pokemon Logo" style={{width: 300, height: 100}}/>
+          <ErrorBoundry>
+              <Scroll>
                 <PokeList pokemons={filteredPokemons} />
-              </div>
-            </Scroll>
-            <SearchBox searchChange={this.onSearchChange} />
-        </ErrorBoundry>
-      <img src={Gotta} alt="gotta" style={{width: 400, height: 70}}/>
-    </div>
-  )
+              </Scroll>
+              <SearchBox searchChange={this.onSearchChange} />
+          </ErrorBoundry>
+        <img src={Gotta} alt="gotta" style={{width: 400, height: 70}}/>
+      </div>
+    )
 }
 }
 

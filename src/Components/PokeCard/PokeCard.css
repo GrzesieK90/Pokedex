@@ -1,41 +1,207 @@
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+}
+.id{
+    height: 50px;
+}
+
 .card {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    border: 2px black solid;
-    height: 300px;
-    width: 300px;
-    background: linear-gradient(rgb(128, 0, 255), rgb(255, 123, 0));
-    border-radius: 50%;
-    box-shadow: 0px 0px 25px black;
+    margin: 15px;
+    border: 4px solid #333;
+    height: 350px;
+    width: 250px;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    border-radius: 15px;
+    box-shadow: 
+        0 0 10px rgba(0,0,0,0.5), 
+        inset 0 0 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(transparent 60%, rgba(255,255,255,0.1) 60%),
+        linear-gradient(90deg, transparent 60%, rgba(255,255,255,0.1) 60%);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .card:hover {
-box-shadow: 0px 0px 10px rgb(255, 0, 0), 0px 0px 30px rgb(136, 0, 0), 0px 0px 50px rgb(0, 0, 0);
+    transform: scale(1.20);
+    box-shadow: 
+        0 0 20px rgba(0,0,0,0.7), 
+        inset 0 0 30px rgba(0,0,0,0.5);
 }
 
-img {
+.card img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    padding-top: 10px;
-    height: 160px;
-    width: 160px;
-    -webkit-filter: drop-shadow(8px 8px 1px #222 );
-    filter: drop-shadow(8px 8px 1px #222);
-}
-h1 {
-    text-align: center;
-    text-shadow: 6px 6px 4px rgb(102, 102, 102);
+    margin: 20px auto;
+    height: 180px;
+    width: 180px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.2),
+        0 5px 10px rgba(0,0,0,0.2);
 }
 
-.id {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -30px;
-    background: rgb(255, 230, 0);
+.card .id {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #00ff00;
+    padding: 5px 15px;
     border-radius: 20px;
-    width: 240px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.card h1 {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin: 10px 0;
+}
+
+/* Pokemon Modal Styles */
+.pokemon-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pokemon-modal-content {
+    width: 50vw;
+    height: 90vh;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    border-radius: 20px;
+    border: 6px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    box-shadow: 
+        0 0 30px rgba(0,0,0,0.5),
+        inset 0 0 50px rgba(0,0,0,0.3);
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+.pokemon-modal-content .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 30px;
+    background: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pokemon-modal-content .close-btn:hover {
+    background: #00ff00;
+    color: #333;
+}
+
+.pokemon-modal-content .detail-image {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.2),
+        0 10px 20px rgba(0,0,0,0.3);
+}
+
+.pokemon-modal-content .stats {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.pokemon-modal-content .stats h3 {
+    color: #00ff00;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #00ff00;
+    padding-bottom: 10px;
+}
+
+.pokemon-modal-content .stats p {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+.pokemon-modal-content .pokemon-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.pokemon-modal-content .detail-image {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.2),
+        0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.pokemon-modal-content .detail-image:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-modal-content .front-image {
+    border: 3px solid #00ff00;
 }

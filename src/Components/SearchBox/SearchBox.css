@@ -7,7 +7,21 @@ input {
     height: 4vh;
     font-size: 3vh;
     text-align: center;
-    background: rgb(0, 189, 0);
+    background-color: #00ff00;
+    color: #333;
+    border: 2px solid #333;
     border-radius: 25px;
-    box-shadow: 0px 0px 5px black ;
+    font-family: 'Courier New', monospace;
+    box-shadow: 
+        0 0 5px rgba(0,0,0,0.5),
+        inset 0 0 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 
+        0 0 10px rgba(0,255,0,0.7),
+        inset 0 0 15px rgba(0,0,0,0.3);
+    transform: scale(1.02);
 }
