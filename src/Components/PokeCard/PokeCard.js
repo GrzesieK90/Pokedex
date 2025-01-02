@@ -109,15 +109,22 @@ const PokeCard = ({ name, url, details }) => {
                 </div>
             )}
             {details && (
-                <img 
-                    src={bestIcon} 
-                    alt={`${name} sprite`} 
-                    className={`pokemon-image ${isImageLoading ? 'hidden' : ''}`}
-                    onLoad={handleImageLoad}
-                    onError={handleImageError}
-                />
+                <>
+                    <img 
+                        src={bestIcon} 
+                        alt={`${name} sprite`} 
+                        className={`pokemon-image ${isImageLoading ? 'hidden' : ''}`}
+                        onLoad={handleImageLoad}
+                        onError={handleImageError}
+                    />
+                    <div className="pokemon-card-details">
+                        <p className="pokemon-name">#{PokeId} {capitalizeFirst(name)}</p>
+                        <p className="pokemon-type">
+                            Type: {details.types.map(t => capitalizeFirst(t.type.name)).join(", ")}
+                        </p>
+                    </div>
+                </>
             )}
-            <p>{capitalizeFirst(name)}</p>
         </div>
     );
 }
